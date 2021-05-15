@@ -1,0 +1,72 @@
+{{ define "main" }}
+<!-- content page -->
+<main aria-role="main">
+    <section >
+        <ul id="feed__ul">
+            <li class="feed__li h-entry">
+                <div class="feed__content">
+                    <time class="hidden dt-published">{{ .Date }}</time>
+                    <div class="flex properties__row ">
+                        <div rel="author" class="flex left p-author h-card">
+                            <img class="u-photo"
+                                src="{{ with $.Site.Author.image }}/{{ . }}{{ else }}https://picsum.photos/120.webp{{ end }}"
+                                alt="{{.Site.Author.name}}" id="author-img">
+                            <div>
+                                <p rel="me" class="p-name" id="author-name">
+                                    {{ if .Params.author }}
+                                    {{ .Params.author | default $.Site.Author.name }}
+                                    {{ else }}
+                                    Anonymous
+                                    {{ end }}
+                                </p>
+                                <p class="properties">
+                                    {{ if isset .Params "date" }}
+                                    {{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }}{{ end }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex right properties">
+                            {{ if in .Params.Tags "links" }}
+                            <a class="icon" href="{{.Params.Uri}}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-external-link">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                    <polyline points="15 3 21 3 21 9" />
+                                    <line x1="10" y1="14" x2="21" y2="3" />
+                                </svg>
+                            </a>
+                            {{ end }}
+                            <a class="icon u-url" href="{{.Permalink}}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-bookmark">
+                                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <article class="md e-content p-name">
+                            {{ if isset .Params "reply" }}
+                            <h2 class="reply-context"><a class="u-in-reply-to h-cite"
+                                    href="{{.Params.Reply}}">{{.Title}}</a></h2>
+                            {{ else if in .Params.Tags "links" }}
+                            <h2><a href="{{.Params.Uri}}">{{.Title}}</a></h2>
+                            {{ end }}
+                            {{.Content }}
+                            <!-- Bridgy -->
+                            <a class="hidden" href="https://brid.gy/publish/mastodon"></a>
+                            <a class="hidden" href="https://brid.gy/publish/twitter"></a>
+                            <a class="hidden" href="https://fed.brid.gy/"></a>
+                            <data class="p-bridgy-omit-link" value="false"></data>
+                        {{ partial "properties" . }}
+                    </article>
+                </div>
+                <!-- show Webmentions -->
+                <div id="webmentions"></div>
+                {{ partial "webmentions" . }}
+            </li>
+        </ul>
+    </section>
+</main>
+{{ end }}

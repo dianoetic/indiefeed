@@ -1,0 +1,47 @@
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Site.Title }}</title>    
+    {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+    {{ with .Site.Params.monetization }}<meta name="monetization" content="{{ . }}">{{ end }}
+
+    <!-- Place favicon files in ./static/ -->
+    <link rel="shortcut icon" href="{{ "favicon.ico" | absURL }}">
+    <link rel="icon" type="image/png" href="{{ "favicon-32x32.png" | absURL }}" sizes="32x32" />
+    <link rel="icon" type="image/png" href="{{ "favicon-16x16.png" | absURL }}" sizes="16x16" />
+
+    <!-- IndieAuth -->
+    <link rel="authorization_endpoint" href="https://indieauth.com/auth">
+    <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+    {{ with .Site.Params.githubuser }}<link rel="me" href="https://github.com/{{ . }}" />{{ end }}
+    {{ with .Site.Params.twitteruser }}<link rel="me" href="https://twitter.com/{{ . }}" />{{ end }}
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ "css/layout.css" | absURL}}" crossorigin="anonymous" media="screen">
+    {{ if .Site.Params.customCSS }}
+    <link rel="stylesheet" href="{{ .Site.Params.customCSS | absURL }}" crossorigin="anonymous" media="screen">
+    {{ end }}
+    
+    <!-- Webmention -->
+    {{ with .Site.Params.webmentionUrl }}<link rel="webmention" href="{{ . }}" />{{ end }}
+    {{ with .Site.Params.pingbackUrl }}<link rel="pingback" href="{{ . }}" />{{ end }}
+    
+    <!-- Micro{p,s}ub -->
+    {{ with .Site.Params.micropubUrl }}<link rel="micropub" href="{{ . }}">{{ end }}
+    {{ with .Site.Params.microsubUrl }}<link rel="microsub" href="{{ . }}">{{ end }}
+    
+    <!-- Silos -->
+    <meta property="og:url" content="{{ .Site.BaseURL }}" />
+    <meta property="og:title" content="{{ .Site.Title }}" />
+    <meta property="og:site_name" content="{{ .Site.Title }}" />
+    <meta property="og:type" content="website" />
+    {{ with .Site.Params.description }}<meta property="og:description" content="{{ . }}" />{{ end }}
+    {{ with .Site.Params.socialImage }}<meta property="og:image" content="{{ . }}" />{{ end }}
+    
+    <meta name="twitter:title" content="{{ .Site.Title }}" />
+    {{ with .Site.Params.description }}<meta name="twitter:description" content="{{ . }}" />{{ end }}
+    {{ with .Site.Params.socialImage }}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="{{ . }}" />{{ end }}
+</head>

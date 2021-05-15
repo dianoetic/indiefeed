@@ -1,0 +1,60 @@
+/* colors */
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --accent: #0f1111;
+        --color-primary: rgba(29,43,76,.85);
+        --color-secondary: rgb(68, 75, 71);
+        --color-bg: #f8faf8;
+        --item-bg: rgba(255, 255, 255, 1);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --accent: #d4d9dd;
+        --color-primary: #ccc;
+        --color-secondary: #ffc300;
+        --color-bg: #0f0f0f;
+        --item-bg: #222222;
+    }
+}
+
+:root {
+    --scrollbar-bg: var(--color-bg);
+    --scrollbar-thumb: var(--color-secondary);
+    --shadow-shape: 2px 5px 8px;
+    --color-shadow: rgba(0, 0, 0, .1);
+    --border-radius: 6px;
+}
+
+/* spacing */
+
+:root {
+    --content-width: 60rem;
+    --content-margin: 1.5rem;
+    --content-padding: 1.5rem;
+    --item-margin: 0;
+}
+
+@media (max-width: 414px) {
+    :root {
+        --scale: 0.9;
+        --content-width: 100%;
+        --content-margin: 0.5rem;
+        --content-padding: 1rem;
+        --item-margin: 0.5rem;
+    }
+}
+
+@media (min-width: 460px) {
+    :root {
+        --scale: 1;
+    }
+}
+
+@media (min-width: 1000px) {
+    :root {
+        --scale: 1.1;
+    }
+}

@@ -1,0 +1,13 @@
+name = "IndieFeed"
+license = "MIT"
+licenselink = "Link to theme's license"
+description = "A Hugo theme for the IndieWeb with h-feed and webmention support."
+homepage = "https://github.com/dianoetic/indiefeed"
+tags = ["indieweb", "feed"]
+features = ["microformats", "responsive", "h-feed"]
+min_version = "0.59.1"
+
+# If the theme has a single author
+[author]
+    name = "Mrs. D"
+    homepage = "dianoetic.me"

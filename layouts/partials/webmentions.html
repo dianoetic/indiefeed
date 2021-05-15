@@ -1,0 +1,6 @@
+{{ if .Site.IsServer }}
+<script src="/js/wm.js" data-page-url="{{ print .Site.Author.domain .RelPermalink }}" data-wordcount="100"
+    async></script>
+{{ else }}
+<script src="/js/wm.min.js" data-wordcount="100" async></script>
+{{ end }}

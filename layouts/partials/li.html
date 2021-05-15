@@ -1,0 +1,44 @@
+<!-- feed h-entry: https://microformats.org/wiki/h-entry -->
+<li class="feed__li h-entry">
+    <div class="feed__content">
+        <div class="flex properties__row ">
+            <div class="flex left properties">
+                <a rel="author" class="p-author h-card hidden" href="{{.Site.BaseURL}}">{{.Site.Author.name}}</a>
+            </div>
+            <div class="flex right properties">
+                {{ if in .Params.Tags "links" }}
+                <a class="icon" href="{{.Params.Uri}}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-external-link">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                        <polyline points="15 3 21 3 21 9" />
+                        <line x1="10" y1="14" x2="21" y2="3" />
+                    </svg>
+                </a>
+                {{ end }}
+                <a class="icon u-url" href="{{.Permalink}}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-bookmark">
+                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <article class="md p-summary p-name e-content">
+            {{ if isset .Params "reply" }}
+            <h2 class="reply-context"><a class="u-in-reply-to h-cite" href="{{.Params.Reply}}">{{.Title}}</a></h2>
+            {{ else if in .Params.Tags "links" }}
+            <h2><a href="{{.Params.Uri}}">{{.Title}}</a></h2>
+            {{ end }}
+            {{ .Content | truncate 300 }}
+            {{ if .Truncated }}
+            <div id="open">
+                <a href="{{ .Permalink }}" class="properties"><strong>[ open me ]</strong></a>
+            </div>
+            {{ end }}
+            {{ partial "properties" . }}
+        </article>
+    </div>
+</li>

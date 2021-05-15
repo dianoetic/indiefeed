@@ -1,0 +1,83 @@
+baseURL: https://example.com
+languageCode: en-us
+title: IndieFeed
+theme: indiefeed
+
+# How many feed entries to load at once
+paginate: 12
+
+taxonomies:
+  category: categories
+  tag: tags
+
+author:
+  name: Human
+  image: # relative to static/
+  about: I'm a human on the Internet. Welcome to my IndieFeed!
+  nickname: "@example"
+  email: mail@example.com
+  domain: https://example.com
+
+params: # All of these are optional
+  # logo: heart.png # relative to ./static/
+  dateform: January 2, 2006
+  # customCSS: css/style.css # relative to ./static/
+  webmentionUrl: https://webmention.io/example.com/webmention
+  pingbackUrl: https://webmention.io/example.com/xmlrpc
+  micropubUrl: https://example.com/.netlify/functions/micropub
+  microsubUrl: https://aperture.p3k.io/microsub/example
+  # For IndieAuth
+  githubuser: example
+  twitteruser: example # no @ in front
+  # monetization: $xxxxxxx # Web Monetization payment pointer
+  # socialImage: static/img/social.png
+
+mediaTypes:
+  "application/atom+xml":
+    suffixes:
+      - "xml"
+
+outputFormats:
+  Atom:
+    name: "Atom"
+    mediaType: "application/atom+xml"
+    # generated file: <baseName>.<mediaType."application/atom+xml".suffixes[0]> = atom.xml
+    baseName: "atom"
+    isPlainText: false
+    rel: "alternate"
+    isHTML: false
+    permalinkable: false
+  Json:
+    name: "Json"
+    mediaType: "application/json"
+    # generated file: <baseName>.<mediaType."application/feed+json".suffixes[0]> = feed.json
+    baseName: "feed"
+    isPlainText: false
+    rel: "alternate"
+    isHTML: false
+    permalinkable: false
+
+outputs:
+  home:
+    - HTML
+    - ATOM
+    - JSON
+    - RSS
+  page:
+    - HTML
+  section:
+    - HTML
+  taxonomy:
+    - HTML
+  term:
+    - HTML
+    - ATOM
+    - JSON
+    - RSS
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    style: dracula
