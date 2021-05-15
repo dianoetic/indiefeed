@@ -13,10 +13,10 @@
                                 alt="{{.Site.Author.name}}" id="author-img">
                             <div>
                                 <p rel="me" class="p-name" id="author-name">
-                                    {{ if .Params.author }}
-                                    {{ .Params.author | default $.Site.Author.name }}
+                                    {{ with .Params.author }}
+                                    {{ . }}
                                     {{ else }}
-                                    Anonymous
+                                    {{ $.Site.Author.name }}
                                     {{ end }}
                                 </p>
                                 <p class="properties">
