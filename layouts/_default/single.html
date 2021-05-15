@@ -1,7 +1,7 @@
 {{ define "main" }}
 <!-- content page -->
 <main aria-role="main">
-    <section >
+    <section>
         <ul id="feed__ul">
             <li class="feed__li h-entry">
                 <div class="feed__content">
@@ -47,20 +47,20 @@
                         </div>
                     </div>
                     <article class="md e-content p-name">
-                            {{ if isset .Params "reply" }}
-                            <h2 class="reply-context"><a class="u-in-reply-to h-cite"
-                                    href="{{.Params.Reply}}">{{.Title}}</a></h2>
-                            {{ else if in .Params.Tags "links" }}
-                            <h2><a href="{{.Params.Uri}}">{{.Title}}</a></h2>
-                            {{ end }}
-                            {{.Content }}
-                            <!-- Bridgy -->
-                            <a class="hidden" href="https://brid.gy/publish/mastodon"></a>
-                            <a class="hidden" href="https://brid.gy/publish/twitter"></a>
-                            <a class="hidden" href="https://fed.brid.gy/"></a>
-                            <data class="p-bridgy-omit-link" value="false"></data>
-                        {{ partial "properties" . }}
+                        {{ if isset .Params "reply" }}
+                        <h2 class="reply-context"><a class="u-in-reply-to h-cite"
+                                href="{{.Params.Reply}}">{{.Title}}</a></h2>
+                        {{ else if in .Params.Tags "links" }}
+                        <h2><a href="{{.Params.Uri}}">{{.Title}}</a></h2>
+                        {{ end }}
+                        {{.Content }}
+                        <!-- Bridgy -->
+                        <a class="hidden" href="https://brid.gy/publish/mastodon"></a>
+                        <a class="hidden" href="https://brid.gy/publish/twitter"></a>
+                        <a class="hidden" href="https://fed.brid.gy/"></a>
+                        <data class="p-bridgy-omit-link" value="false"></data>
                     </article>
+                    {{ partial "properties" . }}
                 </div>
                 <!-- show Webmentions -->
                 <div id="webmentions"></div>
