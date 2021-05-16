@@ -3,7 +3,7 @@ title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 reply:
 uri:
-categories: ["notes"]
+categories: ["note"] # note, reply, anything else
 tags:
 draft: true
 ---

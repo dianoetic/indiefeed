@@ -17,8 +17,8 @@ p.properties {
     position: relative;
 }
 
-.icon>svg {
-    height: 1rem;
+svg.feather {
+    height: 1.25rem;
 }
 
 ul#feed__ul {

@@ -51,6 +51,14 @@ Once your site is deployed, you may also like to:
 - Learn about [POSSE](https://indieweb.org/POSSE) and sign into [Bridgy](https://brid.gy/)
 - Come say hello to the folks hanging out at [IndieWebCamp](https://indieweb.org/discuss) and introduce yourself (and your website)!
 
+## Categories
+
+IndieFeed will conditionally display aspects of posts depending on the category you put in your front matter:
+
+- `note`: no title displayed
+- `reply`: displays title, reply icon, and includes [reply markup for h-entry](https://microformats.org/wiki/h-entry)
+- Anything else: displays title
+
 ## Preview and Validation
 
 Serve your site locally using Hugo's **development server**: `hugo server`. See [Hugo server docs](https://gohugo.io/commands/hugo_server/#readout) for options.

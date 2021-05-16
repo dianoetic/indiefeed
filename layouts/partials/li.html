@@ -6,16 +6,13 @@
                 <a rel="author" class="p-author h-card hidden" href="{{.Site.BaseURL}}">{{.Site.Author.name}}</a>
             </div>
             <div class="flex right properties">
-                {{ if in .Params.Tags "links" }}
-                <a class="icon" href="{{.Params.Uri}}">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="feather feather-external-link">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                        <polyline points="15 3 21 3 21 9" />
-                        <line x1="10" y1="14" x2="21" y2="3" />
-                    </svg>
-                </a>
+                {{ if in .Params.Categories "reply" }}
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-corner-down-right">
+                    <polyline points="15 10 20 15 15 20"></polyline>
+                    <path d="M4 4v7a4 4 0 0 0 4 4h12"></path>
+                </svg>
                 {{ end }}
                 <a class="icon u-url" href="{{.Permalink}}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -26,19 +23,24 @@
                 </a>
             </div>
         </div>
+
+        {{ if in .Params.Categories "note" }}
         <article class="md p-summary p-name e-content">
-            {{ if isset .Params "reply" }}
-            <h2 class="reply-context"><a class="u-in-reply-to h-cite" href="{{.Params.Reply}}">{{.Title}}</a></h2>
-            {{ else if in .Params.Tags "links" }}
-            <h2><a href="{{.Params.Uri}}">{{.Title}}</a></h2>
-            {{ end }}
-            {{ .Content | truncate 300 }}
-            {{ if .Truncated }}
-            <div id="open">
-                <a href="{{ .Permalink }}" class="properties"><strong>[ open me ]</strong></a>
-            </div>
-            {{ end }}
-        </article>
-        {{ partial "properties" . }}
+            {{ else if in .Params.Categories "reply" }}
+            <article class="md p-summary e-content">
+                <h2 class="p-name reply-context"><a class="u-in-reply-to h-cite" href="{{.Params.Reply}}">{{.Title}}</a>
+                </h2>
+                {{ else }}
+                <article class="md p-summary e-content">
+                    <h2 class="p-name"><a href="{{.Params.Uri}}">{{.Title}}</a></h2>
+                    {{ end }}
+                    {{ .Content | truncate 300 }}
+                    {{ if .Truncated }}
+                    <div id="open">
+                        <a href="{{ .Permalink }}" class="properties"><strong>[ open me ]</strong></a>
+                    </div>
+                    {{ end }}
+                </article>
+                {{ partial "properties" . }}
     </div>
 </li>
