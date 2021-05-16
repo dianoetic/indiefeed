@@ -50,7 +50,6 @@ blockquote > p:first-child {
 
 .md code {
     font-size: calc(0.85rem * var(--scale));
-    color: var(--color-primary);
     padding: 0 0.25rem;
 }
 
@@ -61,7 +60,6 @@ div.highlight {
     scrollbar-width: thin;
     margin: 1rem 0;
     font-size: calc(0.8rem * var(--scale));
-    color: var(--color-primary);
 }
 
 div.highlight > pre {
