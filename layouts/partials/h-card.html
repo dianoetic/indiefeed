@@ -8,12 +8,18 @@
             <address class="properties">
                 {{ $url := urls.Parse .Permalink }}
                 <a class="u-url u-uid" href="{{ .Permalink }}">{{ $url.Host }}</a>
-                {{ with .Site.Author.nickname }} {{ $.Site.Params.separator | default "∙" }} 
+                {{ with .Site.Author.nickname }} {{ $.Site.Params.separator | default "∙" }}
                 <span class="p-nickname">{{.}}</span>
                 {{ end }}
-                {{ with .Site.Author.email }} {{ $.Site.Params.separator | default "∙" }} 
+                {{ with .Site.Author.email }} {{ $.Site.Params.separator | default "∙" }}
                 <a class="u-email" href="mailto:{{ . }}">{{ . }}</a>
                 {{ end }}
+                {{ with .Site.Params.githubuser }} {{ $.Site.Params.separator | default "∙" }}
+                <a rel="me" href="https://github.com/{{ . }}">github</a>{{ end }}
+                {{ with .Site.Params.mastodon }} {{ $.Site.Params.separator | default "∙" }}
+                <a rel="me" href="{{ . }}">mastodon</a>{{ end }}
+                {{ with .Site.Params.twitteruser }} {{ $.Site.Params.separator | default "∙" }}
+                <a rel="me" href="https://twitter.com/{{ . }}">twitter</a>{{ end }}
             </address>
             <p class="p-note">
                 {{ $bio := "author/about.md" }}

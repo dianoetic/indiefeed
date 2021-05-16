@@ -29,6 +29,7 @@ params: # All of these are optional
   # For IndieAuth
   githubuser: example
   twitteruser: example # no @ in front
+  mastodon: https://example.com/@example # full link to your instance profile
   # monetization: $xxxxxxx # Web Monetization payment pointer
   # socialImage: static/img/social.png
 

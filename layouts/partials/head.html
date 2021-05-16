@@ -16,6 +16,7 @@
     <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
     {{ with .Site.Params.githubuser }}<link rel="me" href="https://github.com/{{ . }}" />{{ end }}
     {{ with .Site.Params.twitteruser }}<link rel="me" href="https://twitter.com/{{ . }}" />{{ end }}
+    {{ with .Site.Params.mastodon }}<link rel="me" href="{{ . }}" />{{ end }}
 
     <!-- CSS -->
     <link rel="stylesheet" href="{{ "css/layout.css" | absURL}}" crossorigin="anonymous" media="screen">
