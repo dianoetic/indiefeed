@@ -1,6 +1,6 @@
 name = "IndieFeed"
 license = "MIT"
-licenselink = "Link to theme's license"
+licenselink = "https://github.com/dianoetic/indiefeed/blob/master/LICENSE"
 description = "A Hugo theme for the IndieWeb with h-feed and webmention support."
 homepage = "https://github.com/dianoetic/indiefeed"
 tags = ["indieweb", "feed"]
