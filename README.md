@@ -1,18 +1,18 @@
-# IndieFeed  <img align="right" width="100" height="100" src="static/heart.png">
+# IndieFeed  <img align="right" width="100" height="100" src="https://github.com/dianoetic/indiefeed/blob/master/static/heart.png">
 
 A [Hugo](https://gohugo.io/) theme for the independent web.
 
 - Perfectly parsed by readers with [microformats2](https://microformats.org/wiki/microformats2) support: [h-card](https://microformats.org/wiki/h-card), [h-feed](https://microformats.org/wiki/h-feed), [h-entry](https://microformats.org/wiki/h-entry)
 - [Webmention](https://www.w3.org/TR/webmention/) rendering and built-in support via [Webmention.io](https://webmention.io/)
 - [POSSE](https://indieweb.org/POSSE) support via [Bridgy](https://brid.gy/)
-- [IndieAuth](https://indieweb.org/IndieAuth) built in (see [head.html](layouts/partials/head.html) for supported links -- submit a PR to add one!)
+- [IndieAuth](https://indieweb.org/IndieAuth) built in (see [head.html](https://github.com/dianoetic/indiefeed/blob/master/layouts/partials/head.html) for supported links -- submit a PR to add one!)
 
-*If you're like, (☉_☉) "What do all these funny words mean?" Don't worry! Read the [explainer.](./OTHER_README.md)*
+*If you're like, (☉_☉) "What do all these funny words mean?" Don't worry! Read the [explainer.](https://github.com/dianoetic/indiefeed/blob/master/OTHER_README.md)*
 
 ## Screenshots
 
-<img width="300" src="images/screenshot-dark.png">
-<img width="300" src="images/screenshot-light.png">
+<img width="300" src="https://github.com/dianoetic/indiefeed/blob/master/images/screenshot-dark.png">
+<img width="300" src="https://github.com/dianoetic/indiefeed/blob/master/images/screenshot-light.png">
 
 ## Getting Started
 
@@ -32,7 +32,7 @@ git submodule add https://github.com/dianoetic/indiefeed.git themes/indiefeed
 
 ### 2. Update your `config`
 
-Copy the [example configuration file](./exampleSite/config.yaml) to your root directory and update settings as needed.
+Copy the [example configuration file](https://github.com/dianoetic/indiefeed/blob/master/exampleSite/config.yaml) to your root directory and update settings as needed.
 
 Be sure to replace each `example` or `example.com` with your own domain!
 
@@ -40,7 +40,7 @@ Be sure to replace each `example` or `example.com` with your own domain!
 
 [Add some content](https://gohugo.io/getting-started/quick-start/#step-4-add-some-content) and deploy your site! You can deploy automatically with any of these:
 
-- GitHub Actions ([there's one included!](./exampleSite/.github/workflows/build.yaml)) to [GitHub Pages](https://pages.github.com/)
+- GitHub Actions ([there's one included!](https://github.com/dianoetic/indiefeed/blob/master/exampleSite/.github/workflows/build.yaml)) to [GitHub Pages](https://pages.github.com/)
 - [GitLab Pages](https://docs.gitlab.com/ee/user/project/pages/)
 - [Netlify](https://docs.netlify.com/configure-builds/common-configurations/hugo/)
 - ...or on your own server!
